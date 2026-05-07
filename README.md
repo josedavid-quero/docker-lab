@@ -33,3 +33,33 @@ Donde:
 - **`CONTAINER`** sería el contenedor.
 - **`REPOSITORY`** sería el nombre que daríamos a la imagen.
 - **`[:TAG]`** sería la versión o etiqueta que asignaríamos a la imagen.
+
+## Paso 2
+Crea un `Dockerfile` que haga lo mismo automáticamente.
+
+![Captura 6](capturas/captura6.PNG)
+
+Construye la imagen y ejecuta un contenedor.
+
+- Con el comando `docker build -t ubuntu-paso-2 .` se construye la imagen:
+
+![Captura 7](capturas/captura7.PNG)
+
+- Con el comando `docker run -it ubuntu-paso-2` se ejecuta el contenedor:
+
+![Captura 8](capturas/captura8.PNG)
+
+Y, una vez dentro del contenedor, podemos comprobar si se ha instalado `curl` con el comando `curl --version`:
+
+![Captura 9](capturas/captura9.PNG)
+
+## Pregunta
+¿Qué comando permite ver las **capas de una imagen Docker**?
+
+El comando `docker history <imagen>`
+
+Por ejemplo:
+
+![Captura 10](capturas/captura10.PNG)
+
+
