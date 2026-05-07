@@ -105,3 +105,27 @@ Vamos a listar las imágenes con el comando **`docker images`**:
 ¿Qué ocurre con las imágenes anteriores?
 
 Como no se ha cambiado el nombre de la imagen ni se ha añadido ninguna etiqueta, se ha creado una sola imagen (en vez de tres imágenes diferentes) añadiendo las capas necesarias sobre las capas de las imágenes anteriores para crear la nueva imagen.
+
+# 3. Volúmenes persistentes
+Ejecuta un contendor de:
+
+**`postgres`**
+
+Usa un volumen **`Docker`** montado en:
+
+**`/var/lib/postgresql/data`**
+
+Para ello, se ejecuta el comando:
+
+**`docker run -d --name postgres-ejercicio-3 -e POSTGRES_PASSWORD=ardilla --mount source=postgres-data,target=/var/lib/postgresql/data postgres`**
+
+![Captura 18](capturas/captura18.PNG)
+
+Señalar que para crear el contenedo, es necesario la variable de entorno **`POSTGRES_PASSWORD`** para establecer la contraseña del superusuario **`postgres`**.
+
+## Crear tabla
+Para conectarnos a la base de datos y crear la tabla que indica el ejercicio, hacemos lo siguiente:
+
+- Ejecutamos el comando:
+
+**``**
