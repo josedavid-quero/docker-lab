@@ -279,3 +279,22 @@ Para conocer las direcciones IP de los contenedores, ejecutamos el comando:
 ¿Los contenedores pueden comunicarse entre sí?
 
 Como se puede ver en las capturas, se pueden comunicar entre sí. También lo pueden hacer por nombre, ya que todos los contenedores dentro de una misma red creada por mi se pueden comunicar entre sí a través de su nombre gracias al servidor DNS integrado en **`Docker`**.
+
+# 7. Red none (opcional)
+
+## Investiga:
+
+¿Para qué serviría ejecutar un contenedor con red:
+
+**`none`**
+
+Sirve para aislar completamente al contenedor de la red cuando sabemos que el proceso no necesita red y se quiere garantizar que no tendrá acceso a ella.
+
+Algunos casos de uos prácticos son:
+
+- Seguridad: ejecutar procesos sin riesgo de conexiones externas.
+- Pruebas aisladas: verificar que una app no dependa de Internet.
+- Procesamiento offline: tareas locales como compresión, conversión de archivos, compilación, etc.
+- Entornos restringidos: evitar filtración de datos o accesos no autorizados.
+- Entornos de compilación: Builds que no deben descargar dependencias en tiempo de ejecución.
+- Análisis de malware: Estudiar software sospechoso sin que pueda "llamar a casa".
