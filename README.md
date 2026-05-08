@@ -115,17 +115,55 @@ Usa un volumen **`Docker`** montado en:
 
 **`/var/lib/postgresql/data`**
 
-Para ello, se ejecuta el comando:
+A partir de la versión 18 de postgres se recomienda montar el volumen en , por tanto, se ejecuta el comando:
 
-**`docker run -d --name postgres-ejercicio-3 -e POSTGRES_PASSWORD=ardilla --mount source=postgres-data,target=/var/lib/postgresql/data postgres`**
+**`docker run -d --name postgres-ejercicio-3 -e POSTGRES_PASSWORD=ardilla --mount source=postgres-data,target=/var/lib/postgresql postgres`**
 
 ![Captura 18](capturas/captura18.PNG)
 
 Señalar que para crear el contenedo, es necesario la variable de entorno **`POSTGRES_PASSWORD`** para establecer la contraseña del superusuario **`postgres`**.
 
+Podemos ver cómo se ha creado el contenedor y está en ejecución:
+
+![Captura 19](capturas/captura19.PNG)
+
 ## Crear tabla
-Para conectarnos a la base de datos y crear la tabla que indica el ejercicio, hacemos lo siguiente:
 
-- Ejecutamos el comando:
+- Conéctate a la base de datos:
+Para conectarnos a la base de datos ejecutamos el siguiente comando:
 
-**``**
+**`docker exec -it postgres-ejercicio-3 psql -U postgres`**
+
+![Captura 20](capturas/captura20.PNG)
+
+- Crea la tabla:
+Una vez que ya estamos dentro, lanzamos directamente la sentencia para crear la tabla:
+
+![Captura 21](capturas/captura21.PNG)
+
+- Inserta un registro:
+Hacemos lo mismo que para la creación de la tabla:
+
+![Captura 22](capturas/captura22.PNG)
+
+Comprobamos que la tabla se ha creado y el registro se ha insertado correctamente:
+
+![Captura 23](capturas/captura23.PNG)
+
+## Comprobación
+
+1. Para el contenedor
+2. Elimina el contenedor
+3. Crea un nuevo contenedor usando **el mismo volumen**
+
+![Captura 24](capturas/captura24.PNG)
+
+- Comprueba que los datos siguen existiendo.
+
+En primer lugar accedo al contenedor y, una vez dentro, ejecuto la sentencia:
+
+**`SELECT * FROM items;`**
+
+![Captura 25](capturas/captura25.PNG)
+
+
