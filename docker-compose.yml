@@ -1,0 +1,21 @@
+services:
+  writer:
+    image: ubuntu
+    volumes:
+      - shared-data:/app/logs
+    command: >
+      sh -c "while true; do 
+              date >> /app/logs/timestamp.log; 
+              sleep 30; 
+            done"
+
+  reader:
+    image: ubuntu
+    volumes:
+      - shared-data:/app/logs:ro
+    command: >
+      sh -c "tail -f /app/logs/timestamp.log"
+
+volumes:
+  shared-data:
+  

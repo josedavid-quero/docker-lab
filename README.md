@@ -304,6 +304,7 @@ Algunos casos de uos prácticos son:
 ## Crea dos redes:
 
 **`secure-zone`**
+
 **`public-zone`**
 
 ![Captura 39](capturas/captura39.PNG)
@@ -329,3 +330,49 @@ Podemos comprobar las conexiones de nuestro contenedor con el comando:
 **`docker inspect nginx-ejercicio-8`**
 
 ![Captura 42](capturas/captura42.PNG)
+
+# 9. Docker Compose --- Compartiendo volúmenes
+
+Crea un fichero:
+
+**`docker-compose.yml`**
+ 
+Con dos servicios.
+
+## writer
+
+Debe:
+
+- montar un volumen en **`/app/logs`**
+
+- escribir un timestamp cada 30 segundos
+
+## reader
+
+Debe:
+
+- montar el volumen en modo solo lectura
+
+- mostrar el contenido en consola
+
+El contenido de mi fichero **`docker-compose.yml`** es el siguiente:
+
+![Captura 43](capturas/captura43.PNG)
+
+- En la sección raíz de **`volumes`** defino **`shared-data`** para crear el volumen persistente.
+
+- Creo el servicio **`writer`** utilizando una imagen **`ubuntu`** indicando que monte el volumen shared-data en **`/app/logs`**. Posteriormente, en el **`command`** creo un script para añadir la fecha actual al archivo de log cada 30 segundos.
+
+- Creo el servicio **`reader`** utilizando una imagen **`ubuntu`** indicando que monte el volumen shared-data en **`/app/logs`** pero con el sufijo **`:ro`** (read-only). Posteriormente, en el **`command`** utilizo el comando **`tail`** para ver lo que **`writer`** vaya escribiendo.
+
+Para arrancar los servicios utilizo el comando:
+
+**`docker compose up`**
+
+![Captura 44](capturas/captura44.PNG)
+
+Vemos cómo el **`reader`** va mostrando el log del **`writer`**.
+
+Con el comando **`docker compose ps`** podemos ver el estado de estos servicios y los comandos que están ejecutando.
+
+![Captura 45](capturas/captura45.PNG)
