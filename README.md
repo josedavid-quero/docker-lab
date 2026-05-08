@@ -130,6 +130,7 @@ Podemos ver cómo se ha creado el contenedor y está en ejecución:
 ## Crear tabla
 
 - Conéctate a la base de datos:
+
 Para conectarnos a la base de datos ejecutamos el siguiente comando:
 
 **`docker exec -it postgres-ejercicio-3 psql -U postgres`**
@@ -137,11 +138,13 @@ Para conectarnos a la base de datos ejecutamos el siguiente comando:
 ![Captura 20](capturas/captura20.PNG)
 
 - Crea la tabla:
+
 Una vez que ya estamos dentro, lanzamos directamente la sentencia para crear la tabla:
 
 ![Captura 21](capturas/captura21.PNG)
 
 - Inserta un registro:
+
 Hacemos lo mismo que para la creación de la tabla:
 
 ![Captura 22](capturas/captura22.PNG)
