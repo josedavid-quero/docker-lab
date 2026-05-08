@@ -115,7 +115,7 @@ Usa un volumen **`Docker`** montado en:
 
 **`/var/lib/postgresql/data`**
 
-A partir de la versión 18 de postgres se recomienda montar el volumen en , por tanto, se ejecuta el comando:
+A partir de la versión 18 de postgres se recomienda montar el volumen en **`/var/lib/postgresql`**, por tanto, se ejecuta el comando:
 
 **`docker run -d --name postgres-ejercicio-3 -e POSTGRES_PASSWORD=ardilla --mount source=postgres-data,target=/var/lib/postgresql postgres`**
 
