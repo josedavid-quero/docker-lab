@@ -298,3 +298,34 @@ Algunos casos de uos prácticos son:
 - Entornos restringidos: evitar filtración de datos o accesos no autorizados.
 - Entornos de compilación: Builds que no deben descargar dependencias en tiempo de ejecución.
 - Análisis de malware: Estudiar software sospechoso sin que pueda "llamar a casa".
+
+# 8. Multi-network (opcional)
+
+## Crea dos redes:
+
+**`secure-zone`**
+**`public-zone`**
+
+![Captura 39](capturas/captura39.PNG)
+
+## Arranca un contenedor en **`public-zone`**.
+
+![Captura 40](capturas/captura40.PNG)
+
+## Pregunta:
+
+¿Puedes conectarlo también a **`secure-zone`**?
+
+Sí, el contenedor mantendría su conexión a **`public-zone`** y añadiría una conexión nueva a **`secure-zone`**.
+
+¿Qué comando usarías?
+
+**`docker network connect secure-zone nginx-ejercicio-8`**
+
+![Captura 41](capturas/captura41.PNG)
+
+Podemos comprobar las conexiones de nuestro contenedor con el comando:
+
+**`docker inspect nginx-ejercicio-8`**
+
+![Captura 42](capturas/captura42.PNG)
