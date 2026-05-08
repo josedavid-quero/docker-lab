@@ -169,4 +169,45 @@ En primer lugar accedo al contenedor y, una vez dentro, ejecuto la sentencia:
 
 ![Captura 25](capturas/captura25.PNG)
 
+# 4. Bind mounts
 
+Crea un archivo en tu máquina:
+
+**`ìndex.html`**
+
+Ejemplo:
+
+**`<h1>Hola Docker</h1>`**
+
+![Captura 26](capturas/captura26.PNG)
+
+Ejecuta un contenedor **`nginx`**:
+
+- mapea el puerto **`80`**
+- monta el archivo en:
+
+**`/usr/share/nginx/html/index.html`**
+
+Para hacer esto, ejecuto el siguiente comando:
+
+**`docker run -d --name nginx-ejercicio-4 --mount type=bind,source=C:\CursoDocker\clase-docker\docker-lab\index.html,target=/usr/share/nginx/html/index.html -p 8080:80 nginx`**
+
+![Captura 27](capturas/captura27.PNG)
+
+Abre el navegador:
+
+![Captura 28](capturas/captura28.PNG)
+
+Se muestra el contenido de mi **`index.html`**
+
+Pregunta:
+
+¿Qué ocurre si modificas el archivo **`index.html`** en tu máquina?
+
+Al cambiar mi **`index.html`**:
+
+![Captura 29](capturas/captura29.PNG)
+
+Se actualiza el contenido del navegador, ya que se está sirviendo el mismo **`index.html`**:
+
+![Captura 30](capturas/captura30.PNG)
