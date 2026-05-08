@@ -211,3 +211,16 @@ Al cambiar mi **`index.html`**:
 Se actualiza el contenido del navegador, ya que se está sirviendo el mismo **`index.html`**:
 
 ![Captura 30](capturas/captura30.PNG)
+
+# 5. Auditando volúmenes (opcional)
+
+Investiga:
+
+¿Qué comando permite ver **dónde guarda Docker los datos de un volumen**?
+
+**`docker volume inspect <mi_volumen>`**
+
+Por ejemplo:
+
+![Captura 31](capturas/captura31.PNG)
+
