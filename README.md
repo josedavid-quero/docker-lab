@@ -224,3 +224,58 @@ Por ejemplo:
 
 ![Captura 31](capturas/captura31.PNG)
 
+# 6. Creando redes privadas
+
+## Crea una red llamada:
+
+**`my-net`**
+
+Para hacer esto, ejecutamos el comando:
+
+**`docker network create my-net`**
+
+![Captura 32](capturas/captura32.PNG)
+
+## Arranca dos contenedores **`ubuntu`** en esa red.
+
+Instala ping si es necesario.
+
+- Para arrancar el primer contenedor, ejecuto el comando:
+
+**`docker run -it --name ubuntu-ejercicio6-1 --network my-net ubuntu bash`**
+
+![Captura 33](capturas/captura33.PNG)
+
+- Para instalar ping, dentro del contenedor ejecuto:
+
+**`apt-get update && apt-get install -y iputils-ping`**
+
+![Captura 34](capturas/captura34.PNG)
+
+- Procedo de la misma forma para el segundo contenedor, al que llamo ubuntu-ejercicio6-2:
+
+![Captura 35](capturas/captura35.PNG)
+
+## Desde un contenedor intenta hacer:
+
+**`ping otro_contenedor`**
+
+Para conocer las direcciones IP de los contenedores, ejecutamos el comando:
+
+**`docker network inspect my-net`**
+
+![Captura 36](capturas/captura36.PNG)
+
+- Desde el contenedor **`ubuntu-ejercicio6-1`** podemos hacer ping al contenedor **`ubuntu-ejercicio6-2`** utilizando su ip o su nombre:
+
+![Captura 37](capturas/captura37.PNG)
+
+- De la misma forma podemos hacerlo desde el contenedor **`ubuntu-ejercicio6-2`** al contenedor **`ubuntu-ejercicio6-1`**
+
+![Captura 38](capturas/captura38.PNG)
+
+## Pregunta
+
+¿Los contenedores pueden comunicarse entre sí?
+
+Como se puede ver en las capturas, se pueden comunicar entre sí. También lo pueden hacer por nombre, ya que todos los contenedores dentro de una misma red creada por mi se pueden comunicar entre sí a través de su nombre gracias al servidor DNS integrado en **`Docker`**.
